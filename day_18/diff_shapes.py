@@ -4,7 +4,7 @@ import random
 
 def get_random_hex_color():
     # remove first 2 digits of hex number and add # to make valid color code
-    return '#' + hex(random.randrange(0, 2**24))[2:]
+    return '#' + hex(random.randint(0, 16777215))[2:]
 
 
 def turn_turtle(turtle, angle):
