@@ -2,19 +2,21 @@ from turtle import Turtle, Screen
 import turtle
 import random
 
-COLORS = ('red', 'orange', 'yellow', 'green', 'blue', 'purple')
+COLORS = ("red", "orange", "yellow", "green", "blue", "purple")
 
 
 def move_fd_random(turtle):
     turtle.fd(random.randint(1, 10))
 
+
 def create_turtle(color, pos):
     turtle = Turtle()
-    turtle.shape('turtle')
+    turtle.shape("turtle")
     turtle.color(color)
     turtle.pu()
-    turtle.goto(x=-500, y=pos*30)
+    turtle.goto(x=-500, y=pos * 30)
     return turtle
+
 
 def check_width(input_turtle, guess):
     if input_turtle.xcor() >= (turtle.window_width() / 2) - 25:
@@ -27,6 +29,7 @@ def check_width(input_turtle, guess):
     else:
         return True
 
+
 def check_width_wrapper(guess):
     for input_turtle in turtle.turtles():
         flag = check_width(input_turtle=input_turtle, guess=guess)
@@ -35,11 +38,9 @@ def check_width_wrapper(guess):
         else:
             move_fd_random(turtle=input_turtle)
     return True
-    
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     screen = Screen()
     guess = turtle.textinput("Please enter Turtle Race Bet", "Color")
     for ypos, color in enumerate(COLORS, start=1):
@@ -48,5 +49,3 @@ if __name__ == '__main__':
     while check_width_flag:
         check_width_flag = check_width_wrapper(guess=guess)
     screen.bye()
-
-

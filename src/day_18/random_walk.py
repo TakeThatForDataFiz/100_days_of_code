@@ -5,11 +5,11 @@ import turtle
 def get_random_hex_color():
     # remove first 2 digits of hex number and add # to make valid color code
     hex_num = hex((random.randint(0, 16777215)))[2:]
-    return '#' + f"{hex_num:06s}"
+    return "#" + f"{hex_num:06s}"
 
 
 def get_random_direction():
-    return (random.randint(1, 4))*90
+    return (random.randint(1, 4)) * 90
 
 
 def set_turtle(turtle):
@@ -27,7 +27,7 @@ def random_turtle_move(turtle):
     turtle.setheading(angle)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     t = turtle.Turtle()
     set_turtle(t)
     for _ in range(1000):

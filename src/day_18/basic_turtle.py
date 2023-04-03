@@ -7,6 +7,6 @@ tim_turtle.fd(100)
 tim_turtle.right(90)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     screen = turtle.Screen()
     screen.exitonclick()

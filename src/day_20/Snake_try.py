@@ -1,13 +1,13 @@
 from turtle import Turtle, Screen
 
-STARTING_POSITIONS = [(0,0), (-20, 0), (-40, 0)]
+STARTING_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]
 MOVE_DIST = 20
 
-class Snake:
 
+class Snake:
     def __init__(self):
         self.segments = []
-        for (xpos, ypos) in STARTING_POSITIONS:
+        for xpos, ypos in STARTING_POSITIONS:
             new_t = self.create_snake(xpos=xpos, ypos=ypos)
             self.segments.append(new_t)
         self.head = self.segments[0]
@@ -41,8 +41,13 @@ class Snake:
         reverse_sq = list(reversed(self.segments))
         for idx, sq in enumerate(reverse_sq):
             try:
-                self._move_sq(turtle=sq, pos=(reverse_sq[idx+1].xcor(), reverse_sq[idx+1].ycor()))
+                self._move_sq(
+                    turtle=sq,
+                    pos=(reverse_sq[idx + 1].xcor(), reverse_sq[idx + 1].ycor()),
+                )
             # head of the snake will cause indexerror
             except IndexError:
-                self._move_sq(turtle=sq, pos=(reverse_sq[idx].xcor() + MOVE_DIST, reverse_sq[idx].ycor()))
-
+                self._move_sq(
+                    turtle=sq,
+                    pos=(reverse_sq[idx].xcor() + MOVE_DIST, reverse_sq[idx].ycor()),
+                )

@@ -1,6 +1,7 @@
 from turtle import Turtle, Screen
 import time
 
+
 def create_square(xpos, ypos):
     t = Turtle()
     t.pu()
@@ -39,9 +40,14 @@ if __name__ == "__main__":
         time.sleep(0.1)
         for idx, sq in enumerate(reverse_sq):
             try:
-                move_sq(turtle=sq, pos=(reverse_sq[idx+1].xcor(), reverse_sq[idx+1].ycor()))
+                move_sq(
+                    turtle=sq,
+                    pos=(reverse_sq[idx + 1].xcor(), reverse_sq[idx + 1].ycor()),
+                )
             # head of the snake will cause indexerror
             except IndexError:
-                move_sq(turtle=sq, pos=(reverse_sq[idx].xcor() + 20, reverse_sq[idx].ycor()))
+                move_sq(
+                    turtle=sq, pos=(reverse_sq[idx].xcor() + 20, reverse_sq[idx].ycor())
+                )
 
     screen.exitonclick()

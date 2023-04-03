@@ -10,7 +10,7 @@ def make_tilt_circle(turtle, radius, tilt):
     turtle.setheading(tilt)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     t = turtle.Turtle()
     t.speed(0)
     t.hideturtle()
