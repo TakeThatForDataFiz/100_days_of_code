@@ -7,8 +7,14 @@ from scoreboard import Scoreboard
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
-
+player = Player()
+brd = Scoreboard()
+screen.onkeypress(player.fwd, "Up")
+screen.listen()
 game_is_on = True
 while game_is_on:
     time.sleep(0.1)
+    if player.check_finish():
+        brd.update_brd(incr=1)
+        player.reset()
     screen.update()
